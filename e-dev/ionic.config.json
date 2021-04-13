@@ -1,0 +1,7 @@
+{
+  "name": "e-dev",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
