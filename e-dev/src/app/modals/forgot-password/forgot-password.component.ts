@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-
+import { IonicModule } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -12,7 +12,7 @@ export class ForgotPasswordComponent implements OnInit {
 
     @Input() emailer: string;
 
-    constructor(private modal: ModalController) {}
+    constructor(private modal: ModalController, private ionic: IonicModule) {}
 
     ngOnInit() {
         console.log(this.emailer);

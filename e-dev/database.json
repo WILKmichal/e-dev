@@ -1,8 +1,12 @@
 {
     "profil":{
-        "name": "Zoubida",
+        "username": "Zoubida",
+        "first_name": "Zoubida",
+        "last_name": "ZZ",
         "email": "zoubida@zub.com",
         "dateNaissance": "1993-11-22",
+        "phone":"04040404040",
+        "password":"hash",
         "avatar": "https://eu.ui-avatars.com/api/?name=Zoubida"
     }
 }
