@@ -1,0 +1,29 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Mes vidéos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-segment (ionChange)="getVideos($event)" value="buyed">
+    <ion-segment-button value="buyed">
+      <ion-label>Achetées</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="published">
+      <ion-label>Publiées</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-card *ngFor="let video of videos" >
+      <ion-card-header>
+          <ion-card-title>{{ video.title }}</ion-card-title>
+      </ion-card-header>
+      <video  id="videoPlayer" width="100%" controls muted poster>
+        <source src="{{ video.url }}" type="video/mp4"/>
+      </video>        
+  </ion-card>
+</ion-content>

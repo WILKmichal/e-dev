@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
         }
         console.log(token);
         if (token !== undefined && token !== null)
-            this.router.navigate(['/home']);
+            this.router.navigate(['/tabs']);
     }
 
     async forgotPassword() {
@@ -64,7 +64,6 @@ export class LoginPage implements OnInit {
         });
         await load.present();
         this.auth.login(this.email, this.pass).then(async(user: any) => {
-            console.log(this.platform.platforms());
             if (this.platform.is("desktop")) {
                 localStorage.setItem('token', user.token)
                 localStorage.setItem('user', JSON.stringify(user.user))
@@ -73,7 +72,7 @@ export class LoginPage implements OnInit {
                 await this.storage.setItem('user', JSON.stringify(user.user))
             }
             await this.loading.dismiss();
-            this.router.navigate(['/home'])
+            this.router.navigate(['/tabs'])
         }).catch(async() => {
             this.email = ''
             this.pass = ''

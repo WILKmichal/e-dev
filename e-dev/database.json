@@ -1,12 +1,77 @@
 {
-    "profil":{
-        "username": "Zoubida",
-        "first_name": "Zoubida",
-        "last_name": "ZZ",
-        "email": "zoubida@zub.com",
-        "dateNaissance": "1993-11-22",
-        "phone":"04040404040",
-        "password":"hash",
-        "avatar": "https://eu.ui-avatars.com/api/?name=Zoubida"
+  "profil": {
+    "username": "Zoubida",
+    "first_name": "Zoubida",
+    "last_name": "ZZ",
+    "email": "zoubida@zub.com",
+    "dateNaissance": "1993-11-22",
+    "phone": "04040404040",
+    "password": "hash",
+    "avatar": "https://eu.ui-avatars.com/api/?name=Zoubida",
+    "videos_id": [
+      "6086960d24f0493c34462ee4",
+      "6086960d24f0493c34462ee1"
+    ],
+    "videos_published" : [
+      "6086960d24f0493c34462ee2"
+    ]
+  },
+  "videos": [
+    {
+      "author": "Nicolas",
+      "title": "Premiere video",
+      "description": "Description Premiere video",
+      "category": [
+        "test",
+        "retest"
+      ],
+      "pubDate": "2021-03-30T15:30:00Z",
+      "name": "bonne_annee.mp4",
+      "_id": "6086960d24f0493c34462ee1"
+    },
+    {
+      "author": "Nicolas2",
+      "title": "Deuxieme video",
+      "description": "Description Deuxieme video",
+      "category": [
+        "test"
+      ],
+      "pubDate": "2021-03-30T15:30:00Z",
+      "name": "bigbuck.mp4",
+      "_id": "6086960d24f0493c34462ee2"
+    },
+    {
+      "author": "Nicolas3",
+      "title": "Troisieme video",
+      "description": "Description Troisieme video",
+      "category": [
+        "test"
+      ],
+      "pubDate": "2021-03-30T15:30:00Z",
+      "name": "bigbuck.mp4",
+      "_id": "6086960d24f0493c34462ee3"
+    },
+    {
+      "author": "Nicolas4",
+      "title": "Quatrieme video",
+      "description": "Description Quatrieme video",
+      "category": [
+        "test"
+      ],
+      "pubDate": "2021-03-30T15:30:00Z",
+      "name": "bigbuck.mp4",
+      "_id": "6086960d24f0493c34462ee4"
+    },
+    {
+      "author": "Nicolas5",
+      "title": "Cinquieme video",
+      "description": "Description Cinquieme video",
+      "category": [
+        "test"
+      ],
+      "pubDate": "2021-03-30T15:30:00Z",
+      "name": "bigbuck.mp4",
+      "_id": "6086960d24f0493c34462ee5"
     }
+  ]
 }

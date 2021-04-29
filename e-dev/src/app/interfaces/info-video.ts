@@ -1,9 +1,10 @@
 export interface InfoVideo {
 
-    creator ? : string;
+    author : string;
     title: string;
     description: string;
     category: string[];
     pubDate: string;
-    url : string;
+    name : string;
+    url?: string;
 }

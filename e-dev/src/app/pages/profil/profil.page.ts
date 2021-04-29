@@ -1,10 +1,9 @@
-import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Router } from '@angular/router';
-import { stringify } from '@angular/compiler/src/util';
 import { HttpClient } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profil',
@@ -27,23 +26,26 @@ export class ProfilPage implements OnInit {
     private platform: Platform,
     private storage: NativeStorage,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private loading: LoadingController
   ) { }
 
-  ngOnInit() {
-    let token;
-    let profil;
-    let auth: AuthService;
+  async ngOnInit() {
+    const load = await this.loading.create({
+      message: 'Please wait...',
+  });
+  await load.present();
     if (this.platform.is("desktop")) {
-      token = localStorage.getItem('token');
-      if (token !== undefined && token !== null) {
+      let token = localStorage.getItem('token');
+      console.log(localStorage);
         this.http.get('http://localhost:3000/profil').subscribe(profil => {
           this.profil = profil;
         });
-      } else{
-        alert("Votre session a expirée");
-        this.router.navigate(['/login']);
-      } 
     }
+    await this.loading.dismiss();
+  }
+  disconnected(){
+    alert("Vous avez été déconnecté");
+    this.router.navigate(['/login']);
   }
 }
