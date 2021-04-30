@@ -1,14 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let video of videos">
+  <ion-card *ngFor="let video of videos" button  (click)="openVideo(video)" >
+    <img src="{{video.thumbnail}}" alt="thumbnail {{ video.name }}" />
       <ion-card-header>
-          <ion-card-subtitle>{{ video.author }}</ion-card-subtitle>
-          <ion-card-title>{{ video.title }}</ion-card-title>
+        <ion-card-title id="cardTitle">{{ video.title }}</ion-card-title>
+          <ion-card-subtitle id="cardSubtitle">By {{ video.author }}</ion-card-subtitle>
       </ion-card-header>
-      <video id="videoPlayer" width="100%" controls muted poster>
-        <source src="{{ video.url }}" type="video/mp4"/>
-      </video>
-      <ion-card-content [innerHTML]="video.description">
-        
-      </ion-card-content>
   </ion-card>
 </ion-content>

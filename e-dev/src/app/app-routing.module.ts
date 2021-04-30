@@ -20,7 +20,17 @@ const routes: Routes = [{
   path: 'tabs',
   loadChildren: () =>
     import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+},
+{
+  path: 'lecture-video',
+  loadChildren: () => import('./modals/lecture-video/lecture-video.module').then(m => m.LectureVideoPageModule)
+},
+{
+  path: 'upload-video',
+  loadChildren: () => import('./pages/upload-video/upload-video.module').then(m => m.UploadVideoPageModule)
 }
+
+
 ];
 
 @NgModule({

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-button fill="clear" (click)="close()">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content><br>
+  <ion-grid>
+    <ion-row id="title">
+      <ion-label >{{video.title}}</ion-label>
+    </ion-row>
+    <ion-row >
+      <ion-label id="description"> {{ video.description }}</ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-chip color="primary" size="medium">
+        <ion-label>{{ video.category }}</ion-label>
+      </ion-chip>
+    </ion-row><br><br>
+    <ion-row id="author">
+      <ion-label><ion-icon name="at-outline"></ion-icon> Publié par {{ video.author }}</ion-label>
+    </ion-row>
+    <ion-row id="date">
+      <ion-label><ion-icon name="time-outline"></ion-icon> Le {{ video.pubDate }}</ion-label>
+    </ion-row><br>
+    
+
+    <video id="videoPlayer" width="100%" controls muted poster>
+      <source src="{{ video.url }}" type="video/mp4" />
+    </video>
+    <ion-row>
+      <ion-button id="buttonBuy" expand="block" >Acheter</ion-button>
+    </ion-row>
+    
+  </ion-grid>
+</ion-content>

@@ -1,9 +1,13 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Mes vidéos
-    </ion-title>
+          <ion-title >
+            Mes vidéos
+          </ion-title>
+          <ion-button routerLink="/upload-video">
+            Upload
+          </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -18,12 +22,11 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ion-card *ngFor="let video of videos" >
+  <ion-card *ngFor="let video of videos" button  (click)="openVideo(video)" >
+    <img src="{{video.thumbnail}}" alt="thumbnail {{ video.name }}" />
       <ion-card-header>
-          <ion-card-title>{{ video.title }}</ion-card-title>
+        <ion-card-title id="cardTitle">{{ video.title }}</ion-card-title>
+          <ion-card-subtitle id="cardSubtitle">By {{ video.author }}</ion-card-subtitle>
       </ion-card-header>
-      <video  id="videoPlayer" width="100%" controls muted poster>
-        <source src="{{ video.url }}" type="video/mp4"/>
-      </video>        
   </ion-card>
 </ion-content>

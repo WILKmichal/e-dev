@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { InfoVideo } from '../../interfaces/info-video';
 import { AppComponent } from '../../app.component';
+import { ModalController } from '@ionic/angular';
+import { LectureVideoPage } from '../../modals/lecture-video/lecture-video.page';
 //const axios = require('axios');
 
 @Component({
@@ -17,7 +19,8 @@ export class HomePage implements OnInit {
     constructor(
         private router: Router,
         private route: ActivatedRoute,
-        private videoService: VideosService
+        private videoService: VideosService,
+        private modal: ModalController
     ) {
 
     }
@@ -31,5 +34,16 @@ export class HomePage implements OnInit {
                 this.videos = await this.videoService.getDataBJson();
             }
         });
+    }
+
+    async openVideo(video: InfoVideo) {
+        console.log("openVideo");
+        const modal = await this.modal.create({
+            component: LectureVideoPage,
+            componentProps: {
+                'video': video
+            }
+        });
+        return await modal.present();
     }
 }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { AuthService } from '../../services/auth.service';
 import { ForgotPasswordComponent } from '../../modals/forgot-password/forgot-password.component';
@@ -24,23 +23,22 @@ export class LoginPage implements OnInit {
     constructor(
         private router: Router,
         private auth: AuthService,
-        private platform: Platform,
-        private storage: NativeStorage,
         private modal: ModalController,
-        private loading: LoadingController
+        private loading: LoadingController,
+        private toastController: ToastController
     ) {}
 
     async ngOnInit() {
-        let token;
-        if (this.platform.is("desktop")) {
-            token = localStorage.getItem('token')
-        } else {
-            token = await this.storage.getItem('token')
-        }
-        console.log(token);
-        if (token !== undefined && token !== null)
-            this.router.navigate(['/tabs']);
+        
     }
+    async presentToast() {
+        const toast = await this.toastController.create({
+          message: 'Identifiants incorrects.',
+          duration: 2000,
+          position: 'middle'
+        });
+        toast.present();
+      }
 
     async forgotPassword() {
         const modal = await this.modal.create({
@@ -54,7 +52,6 @@ export class LoginPage implements OnInit {
 
     checkEmail() {
         const regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
-        // this.isErrorMail = !regex.test(this.email);
         this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
     }
 
@@ -64,16 +61,11 @@ export class LoginPage implements OnInit {
         });
         await load.present();
         this.auth.login(this.email, this.pass).then(async(user: any) => {
-            if (this.platform.is("desktop")) {
-                localStorage.setItem('token', user.token)
-                localStorage.setItem('user', JSON.stringify(user.user))
-            } else {
-                await this.storage.setItem('token', user.token)
-                await this.storage.setItem('user', JSON.stringify(user.user))
-            }
+            
             await this.loading.dismiss();
-            this.router.navigate(['/tabs'])
+            this.router.navigate(['/tabs']);
         }).catch(async() => {
+            this.presentToast();
             this.email = ''
             this.pass = ''
             this.isErrorMail = true;
