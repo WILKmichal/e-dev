@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">e-dev</string>
+    <string name="title_activity_main">e-dev</string>
+    <string name="package_name">fr.imie.application.e_dev</string>
+    <string name="custom_url_scheme">fr.imie.application.e_dev</string>
+</resources>

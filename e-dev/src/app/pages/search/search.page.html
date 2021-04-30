@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search</ion-title>
+    <ion-title>Rechercher</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-searchbar (ionChange)="getResultSearchBar()" (ionFocus)="getResultSearchBar()" [(ngModel)]="valueSearchBar">
+    </ion-searchbar>
+  </ion-toolbar>
+
+
+  <ion-row class="ion-justify-content-center">
+    <ion-label id="categorieTitle">Categories</ion-label>
+  </ion-row>
+  <ion-row>
+    <ion-chip *ngFor="let categorie of categories" button (click)="getResultButton(categorie)">
+      <ion-label color="primary" outline="true">{{ categorie }}</ion-label>
+    </ion-chip>
+  </ion-row>
+  <br>
+  <ion-row [hidden]="!(videos.length == 0)" class="ion-justify-content-center">
+    <ion-label>Il n'y a aucun résultats</ion-label>
+  </ion-row>
+
+
+  <ion-card *ngFor="let video of videos" button (click)="openVideo(video)">
+    <img src="{{video.thumbnail}}" alt="thumbnail {{ video.name }}" />
+    <ion-card-header>
+      <ion-chip color="primary">
+        <ion-label>{{ video.category }}</ion-label>
+      </ion-chip>
+      <ion-card-title id="cardTitle">{{ video.title }}</ion-card-title>
+      <ion-card-subtitle id="cardSubtitle">By {{ video.author }}</ion-card-subtitle>
+      
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>
