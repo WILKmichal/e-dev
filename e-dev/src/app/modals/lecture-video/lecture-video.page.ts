@@ -15,7 +15,6 @@ export class LectureVideoPage implements OnInit {
   constructor(private modal: ModalController, private ionic: IonicModule) { }
 
   ngOnInit() {
-    console.log(this.video);
   }
 
   close() {

@@ -2,12 +2,12 @@
   "profil": {
     "username": "Nicolas",
     "first_name": "Nicolas",
-    "last_name": "kohler",
-    "email": "nicol@fr.fr",
+    "last_name": "Kohler",
+    "email": "nicolas@kohler.fr",
     "dateNaissance": "1993-11-22",
-    "phone": "0293838332",
+    "phone": "0129384485",
     "password": "password",
-    "avatar": "https://eu.ui-avatars.com/api/?name=Zoubida",
+    "avatar": "https://eu.ui-avatars.com/api/?name=Nicolas",
     "videos_id": [
       "6086960d24f0493c34462ee4",
       "6086960d24f0493c34462ee1"
@@ -21,9 +21,9 @@
       "author": "Nicolas",
       "title": "Premiere video",
       "description": "Description Premiere video",
-      "category": "retest",
+      "category": "categorie1",
       "pubDate": "2021-04-30T15:30:00Z",
-      "name": "bonne_annee.mp4",
+      "name": "bigbuck.mp4",
       "_id": "6086960d24f0493c34462ee1",
       "thumbnail": "assets/img/bigbuck.jpg"
     },
@@ -31,7 +31,7 @@
       "author": "Nicolas2",
       "title": "Deuxieme video",
       "description": "Description Deuxieme video",
-      "category": "test",
+      "category": "categorie1",
       "pubDate": "2021-03-30T15:30:00Z",
       "name": "bigbuck.mp4",
       "_id": "6086960d24f0493c34462ee2",
@@ -41,7 +41,7 @@
       "author": "Nicolas3",
       "title": "Troisieme video",
       "description": "Description Troisieme video",
-      "category": "categorie1",
+      "category": "categorie3",
       "pubDate": "2021-03-30T15:30:00Z",
       "name": "bigbuck.mp4",
       "_id": "6086960d24f0493c34462ee3",
@@ -51,7 +51,7 @@
       "author": "Nicolas4",
       "title": "Quatrieme video",
       "description": "Description Quatrieme video",
-      "category": "test",
+      "category": "categorie4",
       "pubDate": "2021-03-30T15:30:00Z",
       "name": "bigbuck.mp4",
       "_id": "6086960d24f0493c34462ee4",
@@ -61,7 +61,7 @@
       "author": "Nicolas5",
       "title": "Cinquieme video",
       "description": "Description Cinquieme video",
-      "category": "test",
+      "category": "categorie1",
       "pubDate": "2021-03-30T15:30:00Z",
       "name": "bigbuck.mp4",
       "_id": "6086960d24f0493c34462ee5",
@@ -69,9 +69,9 @@
     }
   ],
   "categories": [
-    "test",
-    "retest",
     "categorie1",
-    "categorie2"
+    "categorie2",
+    "categorie3",
+    "categorie4"
   ]
 }

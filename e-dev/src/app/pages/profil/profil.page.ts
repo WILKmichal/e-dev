@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
@@ -13,7 +12,7 @@ import { LoadingController } from '@ionic/angular';
 export class ProfilPage implements OnInit {
 
   profil: Object = {
-    username: "Zoubida",
+    username: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -24,7 +23,6 @@ export class ProfilPage implements OnInit {
   }
   constructor(
     private platform: Platform,
-    private storage: NativeStorage,
     private router: Router,
     private http: HttpClient,
     private loading: LoadingController
@@ -36,8 +34,8 @@ export class ProfilPage implements OnInit {
   });
   await load.present();
     if (this.platform.is("desktop")) {
-      let token = localStorage.getItem('token');
-      console.log(localStorage);
+      // let token = localStorage.getItem('token');
+      // console.log(token);
         this.http.get('http://localhost:3000/profil').subscribe(profil => {
           this.profil = profil;
         });

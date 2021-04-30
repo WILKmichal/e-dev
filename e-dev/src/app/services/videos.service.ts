@@ -99,14 +99,6 @@ export class VideosService {
             video.url = this.httpAdresse;
             video.pubDate = this.changeDateFormat(video.pubDate);
             videosFound.push(video);
-
-            /* //Si la catégorie est un tableau
-            video["category"].forEach(element => {
-            if(element == categorie)  {
-              video.url = this.httpAdresse;
-              videosFound.push(video);
-            }
-          });    */
           }
         }
         resolve(videosFound);

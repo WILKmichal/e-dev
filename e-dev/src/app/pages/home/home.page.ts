@@ -37,7 +37,6 @@ export class HomePage implements OnInit {
     }
 
     async openVideo(video: InfoVideo) {
-        console.log("openVideo");
         const modal = await this.modal.create({
             component: LectureVideoPage,
             componentProps: {

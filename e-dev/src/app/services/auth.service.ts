@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { UserRegister } from '../interfaces/user-register';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -17,8 +18,12 @@ export class AuthService {
         return new Promise((resolve, rejects) => {
             this.http.get(this.url + '/profil').subscribe((data: any) => {
                 ((data.email == email) && (data.password == password)) ? resolve(data) : rejects(false);
-            });
-        });
+            }),
+            (err) => {
+                console.log(err);
+                rejects(err);
+            };
+        })
     }
 
     register(user: UserRegister) {

@@ -36,10 +36,6 @@ export class MesVideosPage implements OnInit {
     getVideos(event){
         this.videoService.getOwnVideos(event.detail.value).then((all_videos: InfoVideo[]) => {
             this.videos = all_videos;
-            if (this.videos.length == 0) {
-              console.log("Aucune vidéos "+event.detail.value);
-            } 
-      
           })
     }
     async openVideo(video: InfoVideo) {
